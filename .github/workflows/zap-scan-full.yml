@@ -2,7 +2,12 @@ name: ZAP Full Scan
 
 on:
    push
+
+permissions:
+  contents: read
+  actions: write
    
+
 jobs:
     zap-full-scan:
         runs-on: ubuntu-latest
