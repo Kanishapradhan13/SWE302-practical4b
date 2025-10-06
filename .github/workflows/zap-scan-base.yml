@@ -31,6 +31,14 @@ jobs:
         with:
           target: "http://localhost:5000"
 
+      - name: Upload ZAP Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: zap-baseline-report
+          path: report_html.html
+          retention-days: 30    
+
       - name: Cleanup
         if: always()
         run: docker stop app && docker rm app
